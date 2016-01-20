@@ -3,8 +3,9 @@ HTML模板生成器
 
 ## 参数说明
 ```js
-	@temlpate: 模板名称，最好是id,样式最好是唯一
-	@data: JSON数组数据
+	// @temlpate: 模板名称，最好是id,样式最好是唯一
+	// @data: JSON数组数据
+	var html = generateTemHTML(temlpate, data);
 ```
 
 ## 使用方式：
