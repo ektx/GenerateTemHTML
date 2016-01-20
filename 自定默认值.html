@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简单示例</title>
+</head>
+<body>
+	<ul id="companyEmployee-template">
+		<li>
+			<!-- 如果没有名称，默认为 King -->
+			<h2>[[[姓名 | 'Kings']]]</h2>
+			<!-- 如果没有指定年龄，默认为100 -->
+			<p>[[[年龄 | '100' ]]]</p>
+		</li>
+	</ul>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/generateTemHTML.js"></script>
+<script>
+	var data =  [
+		{'姓名': 'zwl'},
+		{'年龄': 57},
+		{'姓名': '李四', '年龄': 57}
+	];
+
+	// 引入模板
+	var html = generateTemHTML('#companyEmployee-template', data)
+	// 生成代码
+	$('#companyEmployee-template').html(html)
+</script>
+</html>

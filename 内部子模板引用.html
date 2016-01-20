@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>示例</title>
+</head>
+<body>
+	<h2>数组:</h2>
+	<ul id="array-template">
+		<li>
+			<!-- 如果没有名称，默认为 King -->
+			<h2>[[[姓名 | 'Kings']]]</h2>
+			<div tem-type="child-template" tem-data="[[[book]]]">
+				<p>[[[book]]]</p>
+			</div>
+		</li>
+	</ul>
+
+	<h2>对象:</h2>
+	<ul id="obj-template">
+		<li>
+			<!-- 如果没有名称，默认为 King -->
+			<h2>[[[姓名 | 'Kings']]]</h2>
+			<div tem-type="child-template" tem-data="[[[book]]]">
+				<p>书名: [[[name]]]</p>
+			</div>
+		</li>
+	</ul>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/generateTemHTML.js"></script>
+<script>
+	var arr =  [
+		{
+			'姓名': 'zwl',
+			'book': ['Book1', 'Book2']
+		},
+		{
+			'姓名': 'Kings',
+			'book': ['Book1', 'Book2']
+		}
+	];
+
+	var obj =  [
+		{
+			'姓名': 'zwl',
+			'book': [
+				{'name': 'Book1'}, 
+				{'name': 'Book2'}
+			]
+		},
+		{
+			'姓名': 'Kings',
+			'book': [
+				{'name': 'Book1'}, 
+				{'name': 'Book2'}
+			]
+		}
+	];
+
+
+	// 引入模板
+	var arrhtml = generateTemHTML('#array-template', arr)
+	var objhtml = generateTemHTML('#obj-template', obj)
+	
+	// 生成代码
+	$('#array-template').html(arrhtml);
+	$('#obj-template').html(objhtml);
+
+
+
+</script>
+</html>
